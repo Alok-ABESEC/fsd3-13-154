@@ -1,21 +1,44 @@
-const f1=()=>{
-f2();
-console.log("F1");    
+import { writeFile } from "fs/promises";
+
+const f1 = () => {
+    console.log("f1");
 };
-const f2=()=>{
-f3();
-console.log("F2");    
+
+const f2 = () => {
+    console.log("f2");
 };
-const f3=()=>{
-f2();
-console.log("F3");    
+
+const f3 = () => {
+    console.log("f3");
 };
-const main=()=>{
+
+const writeData = async () => {
+    await writeFile("note.txt", "I am fs module");
+    console.log("file written");
+};
+
+const main = () => {
     console.log("main");
+
     f1();
-    setTimeout(f2,5000);
-    f2();
-    f3();
-    console.log("end")
+
+    setTimeout(f2, 5000);
+    setImmediate(f3);
+    process.nextTick(f1);
+
+    console.log("end");
+
+    new Promise((resolve, reject) => {
+        console.log("I am promise1");
+        resolve();
+    });
+
+    new Promise((resolve, reject) => {
+        console.log("I am promise2");
+        resolve();
+    });
+
+    writeData();
 };
+
 main();
