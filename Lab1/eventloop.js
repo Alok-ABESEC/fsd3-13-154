@@ -1,0 +1,21 @@
+const f1=()=>{
+f2();
+console.log("F1");    
+};
+const f2=()=>{
+f3();
+console.log("F2");    
+};
+const f3=()=>{
+f2();
+console.log("F3");    
+};
+const main=()=>{
+    console.log("main");
+    f1();
+    setTimeout(f2,5000);
+    f2();
+    f3();
+    console.log("end")
+};
+main();
