@@ -14,6 +14,10 @@ const readData = async (fname) => {
 
 const appendData = async (fname,contents) => {
     await appendFile(fname,"\n" + contents);
+};
+const deleteFile = async (fname) => {
+    await unlink(fname);
+    console.log("File deleted");
 }
 await writeData("happy.txt", "I am very happy");
 await readData("happy.txt");
