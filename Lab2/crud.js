@@ -8,7 +8,12 @@ await writeFile(FILE,JSON.stringify(cart,null,2));
 const getCart = async () =>{
     const data = await readFile(FILE,"utf-8");
     return JSON.parse(data);
-}
+};
+const addToCart = async (item)=>{
+    const products= await getCart();
+    products.push(item);
+    await saveCart(products);
+};
 
 const main = async () => {
     const cin = readline.createInterface({
@@ -31,6 +36,7 @@ const main = async () => {
 
         switch(Number (choice)) {
             case 1:
+                await addToCart({id:101,name:"mobile",price:15000,qty:3})
                 console.log("Add to cart");
                 break;
 
