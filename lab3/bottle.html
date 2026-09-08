@@ -1,0 +1,555 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HydroSmart - Smart Water Bottle</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4fbff;
+            color: #123;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px #ddd;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #008cba;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #123;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #008cba;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 10%;
+            background: linear-gradient(135deg, #e5f9ff, #ffffff);
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            color: #05668d;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #00a8e8;
+        }
+
+        .hero-text p {
+            font-size: 19px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #008cba;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #05668d;
+        }
+
+        /* Bottle */
+        .bottle-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+        }
+
+        .bottle {
+            width: 190px;
+            height: 440px;
+            background: linear-gradient(90deg, #c8f1ff, #ffffff, #8ddcf5);
+            border-radius: 45px 45px 35px 35px;
+            border: 5px solid #168aad;
+            position: relative;
+            box-shadow: 0 20px 40px #a9dbe8;
+        }
+
+        .bottle::before {
+            content: "";
+            position: absolute;
+            width: 90px;
+            height: 55px;
+            background: #168aad;
+            top: -55px;
+            left: 45px;
+            border-radius: 15px 15px 5px 5px;
+        }
+
+        .bottle::after {
+            content: "HYDRO";
+            position: absolute;
+            top: 190px;
+            left: 35px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #05668d;
+            transform: rotate(-90deg);
+        }
+
+        .water {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 65%;
+            background: #4cc9f0;
+            opacity: 0.45;
+            border-radius: 0 0 30px 30px;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #05668d;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #dceff5;
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+        }
+
+        .feature .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+            color: #05668d;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Hydration */
+        .hydration {
+            background: #e5f9ff;
+            text-align: center;
+        }
+
+        .progress-box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px #cfe9f0;
+        }
+
+        .progress-bar {
+            height: 30px;
+            background: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress {
+            width: 70%;
+            height: 100%;
+            background: #00a8e8;
+            border-radius: 20px;
+        }
+
+        .water-count {
+            font-size: 35px;
+            font-weight: bold;
+            color: #008cba;
+        }
+
+        /* Product */
+        .product {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .product-info {
+            max-width: 500px;
+        }
+
+        .product-info h2 {
+            font-size: 40px;
+            color: #05668d;
+            margin-bottom: 20px;
+        }
+
+        .product-info p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 35px;
+            font-weight: bold;
+            color: #008cba;
+            margin-bottom: 20px;
+        }
+
+        /* Contact */
+        .contact {
+            background: #05668d;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            margin-bottom: 20px;
+        }
+
+        .contact .btn {
+            background: white;
+            color: #05668d;
+        }
+
+        /* Footer */
+        footer {
+            background: #023047;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            nav ul {
+                gap: 10px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 70px;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .bottle-area {
+                width: 100%;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .product {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">💧 HydroSmart</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#hydration">Hydration</a></li>
+            <li><a href="#product">Product</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <h1>Drink Smart.<br><span>Live Better.</span></h1>
+
+            <p>
+                Meet HydroSmart, the intelligent water bottle that
+                helps you stay hydrated throughout your day.
+            </p>
+
+            <a href="#product" class="btn">Buy Now</a>
+        </div>
+
+        <div class="bottle-area">
+            <div class="bottle">
+                <div class="water"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+
+        <div class="section-title">
+            <h2>Smart Features</h2>
+            <p>Technology designed to improve your hydration.</p>
+        </div>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="icon">💧</div>
+                <h3>Water Tracking</h3>
+                <p>
+                    Automatically track how much water you drink
+                    throughout the day.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🔔</div>
+                <h3>Smart Reminder</h3>
+                <p>
+                    Get reminders when it is time to drink more water.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">📱</div>
+                <h3>Mobile App</h3>
+                <p>
+                    Connect your bottle with your smartphone and
+                    monitor your hydration.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🌡️</div>
+                <h3>Temperature Display</h3>
+                <p>
+                    Check your water temperature directly from the bottle.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🔋</div>
+                <h3>Long Battery</h3>
+                <p>
+                    Enjoy up to 7 days of battery life on a single charge.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🛡️</div>
+                <h3>Leak Proof</h3>
+                <p>
+                    A secure leak-proof design makes it perfect for travel.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Hydration Tracker -->
+    <section class="hydration" id="hydration">
+
+        <div class="section-title">
+            <h2>Today's Hydration</h2>
+            <p>Keep track of your daily water intake.</p>
+        </div>
+
+        <div class="progress-box">
+
+            <div class="water-count">
+                <span id="waterAmount">1.8</span> L / 2.5 L
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+
+            <button class="btn" onclick="addWater()">
+                + Add 250 ml
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Product -->
+    <section id="product">
+
+        <div class="product">
+
+            <div class="bottle-area">
+                <div class="bottle">
+                    <div class="water"></div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h2>HydroSmart Bottle</h2>
+
+                <p>
+                    A premium smart water bottle designed for students,
+                    professionals, athletes and anyone who wants to
+                    maintain better hydration habits.
+                </p>
+
+                <div class="price">₹1,999</div>
+
+                <button class="btn" onclick="buyBottle()">
+                    Buy Now
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+
+        <h2>Stay Hydrated 💧</h2>
+
+        <p>
+            Make hydration a habit with HydroSmart.
+        </p>
+
+        <button class="btn" onclick="showMessage()">
+            Get Started
+        </button>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 HydroSmart. All Rights Reserved.</p>
+    </footer>
+
+
+    <script>
+
+        let water = 1.8;
+
+        function addWater() {
+
+            if (water < 2.5) {
+                water += 0.25;
+            }
+
+            if (water > 2.5) {
+                water = 2.5;
+            }
+
+            document.getElementById("waterAmount").innerText =
+                water.toFixed(2);
+
+            let percentage = (water / 2.5) * 100;
+
+            document.getElementById("progress").style.width =
+                percentage + "%";
+        }
+
+        function buyBottle() {
+            alert("Thank you for choosing HydroSmart! 💧");
+        }
+
+        function showMessage() {
+            alert("Welcome to HydroSmart! Stay hydrated 💧");
+        }
+
+    </script>
+
+</body>
+</html>
+```
