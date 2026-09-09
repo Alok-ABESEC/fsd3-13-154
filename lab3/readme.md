@@ -52,3 +52,20 @@ Note: -D flag will install this package as developer dependency
        1. res.writehread
        2. res.setheader
        3. res.statuscode
+## send html file to client
+       1. res.end
+          end("any html content/tag")
+      2. html file
+          - read by createReadstream
+          - pipe with res object
+## JSON (JAVA SCRIPT OBJECT NOTATION)
+  - server return data only not html content because html content will be retain by front end developer.The data is in json format.
+  - json always store datya in key value pair enclosed by {} bracket array casn stored by[].one pair of { } will reprtesent one object and its property seperated by ,
+  ``` {
+  id:1,
+  name:'mobile',
+  price:40000,
+  rating:4,
+  reviews:400,
+
+  }

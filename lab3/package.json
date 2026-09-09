@@ -1,11 +1,12 @@
 {
   "name": "lab3",
   "version": "1.0.0",
-  "description": "localhost - URL\r 127.0.0.1 - IP address",
+  "description": "",
   "main": "prg1.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon prg3.js"},
+    "start": "node prg3.js",
+    "dev": "nodemon prg4.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
