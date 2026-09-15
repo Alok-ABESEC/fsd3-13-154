@@ -69,3 +69,13 @@ Note: -D flag will install this package as developer dependency
   reviews:400,
 
   }
+## Headers
+  it is used to tell client the type of data send by the server it may be html files,json data,plain text file
+  css file any tokens{for login}
+  1.tesxt/plain->text file
+  2.text/html->html content/file
+  3.application/json-> json content/file
+  4.text/css->stylesheet
+  5.application/form-data->for uploadind file
+  6.application/auth->for tokens
+    
