@@ -78,4 +78,11 @@ Note: -D flag will install this package as developer dependency
   4.text/css->stylesheet
   5.application/form-data->for uploadind file
   6.application/auth->for tokens
-    
+  GET
+- no parameter will pass to the server when we recieve all items.
+POST
+- to ad record we pass the value from body section in json format of api tester(echo api).
+DELETE
+- to delete any product we pass parameter that is id of the product from url.
+UPDATE
+- to update any product we pass id from url and data to update from body.
