@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | BrightPath Tuition</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#1f2937;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.navbar{background:#172554;color:white;padding:15px 6%;display:flex;align-items:center;justify-content:space-between;gap:20px;position:sticky;top:0;z-index:10}
+.logo{font-size:24px;font-weight:700}
+.nav-links{display:flex;gap:18px;list-style:none;flex-wrap:wrap}
+.nav-links a{padding:8px 12px;border-radius:7px;color:#e5e7eb}
+.nav-links a:hover,.nav-links a.active{background:#2563eb;color:white}
+.container{width:min(1100px,90%);margin:45px auto}
+.hero{text-align:center;background:linear-gradient(135deg,#dbeafe,#eef2ff);padding:55px 25px;border-radius:18px}
+.hero h1{font-size:42px;color:#172554;margin-bottom:12px}
+.hero p{font-size:18px;color:#475569}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-top:28px}
+.card{background:white;border-radius:14px;padding:25px;box-shadow:0 5px 18px rgba(15,23,42,.08)}
+.card h2,.card h3{color:#1d4ed8;margin-bottom:10px}
+.btn{display:inline-block;background:#2563eb;color:white;border:0;padding:11px 20px;border-radius:8px;cursor:pointer;margin-top:15px}
+.btn:hover{background:#1d4ed8}
+.form-box{max-width:600px;margin:auto;background:white;padding:30px;border-radius:16px;box-shadow:0 5px 18px rgba(15,23,42,.08)}
+label{display:block;font-weight:600;margin:15px 0 6px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px}
+textarea{min-height:130px;resize:vertical}
+.price{font-size:32px;font-weight:700;color:#1d4ed8;margin:15px 0}
+.price span{font-size:15px;color:#64748b;font-weight:400}
+ul.clean{list-style:none;margin:15px 0}
+ul.clean li{padding:7px 0;border-bottom:1px solid #e5e7eb}
+.footer{background:#0f172a;color:#cbd5e1;padding:30px 6%;margin-top:60px}
+.footer-inner{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.social{display:flex;gap:12px;margin-top:12px}
+.social a{width:38px;height:38px;border-radius:50%;background:#1e293b;display:grid;place-items:center;color:white;font-size:18px}
+.social a:hover{background:#2563eb}
+.small{text-align:center;margin-top:25px;color:#94a3b8;font-size:14px}
+.notice{background:#dcfce7;color:#166534;padding:12px 15px;border-radius:8px;margin-top:15px;display:none}
+@media(max-width:700px){.navbar{align-items:flex-start;flex-direction:column}.nav-links{gap:5px}.hero h1{font-size:31px}}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="logo" href="index.html">BrightPath Tuition</a>
+  <ul class="nav-links">
+    <li><a href="registration.html" class="nav-registration">Registration</a></li>
+    <li><a href="login.html" class="nav-login">Login</a></li>
+    <li><a href="courses.html" class="nav-courses">Courses</a></li>
+    <li><a href="feedback.html" class="nav-feedback">Feedback</a></li>
+    <li><a href="price-details.html" class="nav-price">Price Details</a></li>
+  </ul>
+</nav>
+
+
+<main class="container">
+  <div class="hero"><h1>Student Login</h1><p>Access your BrightPath learning account.</p></div>
+  <div class="form-box" style="margin-top:30px">
+    <form onsubmit="loginMessage(event)">
+      <label>Email Address</label><input type="email" placeholder="Enter your email" required>
+      <label>Password</label><input type="password" placeholder="Enter your password" required>
+      <button class="btn" type="submit">Login</button>
+      <div id="msg" class="notice">Login form submitted successfully!</div>
+    </form>
+  </div>
+</main>
+<script>
+function loginMessage(e){e.preventDefault();document.getElementById('msg').style.display='block';}
+</script>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h3>BrightPath Tuition</h3>
+      <p>Learn better. Grow faster. Achieve more.</p>
+    </div>
+    <div>
+      <strong>Follow us</strong>
+      <div class="social">
+        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="small">&copy; 2026 BrightPath Tuition Classes. All rights reserved.</div>
+</footer>
+<script>document.querySelector('.nav-login').classList.add('active');</script></body></html>
