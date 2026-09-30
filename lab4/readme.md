@@ -15,4 +15,13 @@
 7. add folderName/node_modules in gitignore
 # send method 
 1. it is used to reward back content to client it may be html,json,htmlfile,plain text
-we can also add status code with status function. it can be chain with send function
+2. we can also add status code with status function. it can be chain with send function
+# map
+1. this function is used to iterate any array it must returns new array
+```
+array.map((item)=>{
+  return
+})
+array.map((item)=>())
+```
+to search any item in json array is used findmethod it return null on unsuccessful and object 
