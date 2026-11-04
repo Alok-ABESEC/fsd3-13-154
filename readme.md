@@ -19,3 +19,11 @@
   - start with capital letter
   - 
 
+
+## React Component
+  - any web app is build by different component
+  - it is special type of js function that must return html content/s
+  - it may call user defined function tags
+  - it must be called inside angle<>
+  - must be closed</>
+  - the first char must be capital letter

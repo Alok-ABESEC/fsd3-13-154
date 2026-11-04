@@ -1,22 +1,51 @@
-const Hello = () => {
-  return <h2>welcome to react 19</h2>;
-};
-const book = () => {
-  return(<>
-  <h1>Book Title</h1>
-  <h2>Book Author</h2>
-  <h3>Book Price:799</h3>
-  </>)
-};
+function You(prop) {
+  return (
+    <>
+      <h1>{prop.name}</h1>
+      <h2>{prop.email}</h2>
+    </>
+  );
+}
 
-
+const Friend = (props) => {
+  return (
+    <>
+      <h1>{props.name}</h1>
+      <h2>{props.email}</h2>
+      <h3>{props.age}</h3>
+    </>
+  );
+};
 
 export default function App() {
+  return (
+    <>
+      <h1>My Self</h1>
 
-  return (<>
-  <h1 className="text-4xl font-bold text-center bg-red-500 text-gray-300">Hello Alok Yadav</h1>
-  <Hello />
-  <book />
-  </>);
-};
+      <You
+        name="Aman Kumar"
+        email="7129aman@gmail.com"
+      />
 
+      <h2>My friends are:</h2>
+
+      <Friend
+        name="Amit Sharma"
+        email="amit@gmail.com"
+        age="32"
+      />
+
+      <Friend
+        name="Manish Sharma"
+        email="manish@gmail.com"
+        age="42"
+      />
+
+      <Friend
+        name="Mohan Singh"
+        email="mohan@gmail.com"
+        age="30"
+      />
+    </>
+  );
+}
