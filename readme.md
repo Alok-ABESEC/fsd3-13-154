@@ -27,3 +27,5 @@
   - it must be called inside angle<>
   - must be closed</>
   - the first char must be capital letter
+
+  - 
